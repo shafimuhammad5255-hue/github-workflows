@@ -1,12 +1,18 @@
 name: HTML Tests
 
 on:
-  workflow_dispatch:
   push:
     branches:
+      - development
+      - test
+      - stage
       - main
+
   pull_request:
     branches:
+      - development
+      - test
+      - stage
       - main
 
 permissions:
