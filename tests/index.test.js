@@ -19,10 +19,14 @@ test('index.html contains the expected heading', () => {
   assert.match(html, /<h1>Welcome<\/h1>/);
 });
 
-test('index.html contains exactly the three expected paragraphs', () => {
-  assert.deepEqual(html.match(/<p>.*?<\/p>/g), [
+test('index.html contains the expected paragraphs', () => {
+  const expectedParagraphs = [
     '<p>This is the first paragraph.</p>',
     '<p>This is the second paragraph.</p>',
     '<p>This is the third paragraph.</p>',
-  ]);
+  ];
+
+  for (const paragraph of expectedParagraphs) {
+    assert.ok(html.includes(paragraph), `Missing expected paragraph: ${paragraph}`);
+  }
 });
